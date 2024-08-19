@@ -58,7 +58,7 @@ Request access to the authors of the [THuman Dataset](https://github.com/ytrock/
 ```
 python -m apps.prt_util -i {path_to_thuman_data}
 ```
-This will create a *bounce* directory following this hierarchy. 
+This will create a `bounce` directory following this hierarchy. 
 
  ```
     ./THuman2.1/
