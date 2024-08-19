@@ -6,6 +6,12 @@ Same environment as the original [PIFu](https://github.com/shunsukesaito/PIFu) r
 
 ### To install only the necessary packages for preprocessing. 
 
+Conda environment
+```
+conda create -n pifu python==3.10
+```
+
+
 Install pyembree
 ```
 conda install -c conda-forge pyembree
@@ -15,7 +21,6 @@ Install other packages
 ```
 pip install -r requirements.txt 
 ```
-
 
 ## Process THuman Dataset 
 ![teaser](assets/THuman2.0.jpg)

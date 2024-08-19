@@ -1,1 +1,5 @@
 trimesh
+pyexr
+tqdm
+scikit-learn
+numpy==1.23.0
