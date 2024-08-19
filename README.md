@@ -52,6 +52,7 @@ Request access to the authors of the [THuman Dataset](https://github.com/ytrock/
 
 ### Preprocess
 1. Run [precomputed radiance transfer (PRT)](https://sites.fas.harvard.edu/~cs278/papers/prt.pdf).
+
  Warning: the following code becomes extremely slow without [pyembree](https://github.com/scopatz/pyembree). Please make sure you install pyembree.
 
 ```
