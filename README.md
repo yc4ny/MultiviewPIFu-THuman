@@ -15,11 +15,33 @@ year = {2019}
 Same environment as the original [PIFu](https://github.com/shunsukesaito/PIFu) repo. 
 
 
-## Preprocess with THuman2.0/2.1 Dataset
+## Process THuman Dataset 
 ![teaser](assets/THuman2.0.jpg)
 
 Request access to [THuman Dataset](https://github.com/ytrock/THuman2.0-Dataset) and extract/unzip the downloaded dataset. 
 
+### Folder hierarchy
+- Once you sucessfully downloaded and extracted the dataset, you should have the following files in your directory:
+    ```
+    ./THuman2.1/
+    ├── 0000
+    │   └── 0000.obj
+    │   └── material0.jpeg
+    |   └── material0.mtl
+    ├── 0001
+    │   └── 0001.obj
+    │   └── material0.jpeg
+    |   └── material0.mtl
+    └── 0002
+    │   └── 0003.obj
+    │   └── material0.jpeg
+    |   └── material0.mtl
+    .
+    .
+    .
+    ```
+
+### Preprocess
 1. Run [precomputed radiance transfer (PRT)](https://sites.fas.harvard.edu/~cs278/papers/prt.pdf). Warning: the following code becomes extremely slow without [pyembree](https://github.com/scopatz/pyembree). Please make sure you install pyembree.
 
 ```
