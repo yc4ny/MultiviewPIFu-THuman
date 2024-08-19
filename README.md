@@ -74,7 +74,7 @@ year = {2019}
 ```
 
 ```
-@inproceedings{yu2021function4d,
+@InProceedings{yu2021function4d,
   title={Function4d: Real-time human volumetric capture from very sparse consumer rgbd sensors},
   author={Yu, Tao and Zheng, Zerong and Guo, Kaiwen and Liu, Pengpeng and Dai, Qionghai and Liu, Yebin},
   booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
