@@ -19,7 +19,7 @@ Same environment as the original [PIFu](https://shunsukesaito.github.io/PIFu) re
 
 Request access to [THuman Dataset](https://github.com/ytrock/THuman2.0-Dataset) and extract the downloaded dataset. 
 
-1. Run [precomputed radiance transfer (PRT)](https://sites.fas.harvard.edu/~cs278/papers/prt.pdf). 
+1. Run [precomputed radiance transfer (PRT)](https://sites.fas.harvard.edu/~cs278/papers/prt.pdf). Warning: the following code becomes extremely slow without [pyembree](https://github.com/scopatz/pyembree). Please make sure you install pyembree.
 
 ```
 python -m apps.prt_util -i {path_to_unzipped_thuman_data}
