@@ -10,6 +10,7 @@ Same environment as the original [PIFu](https://github.com/shunsukesaito/PIFu) r
 Conda environment
 ```
 conda create -n pifu python==3.10
+conda activate pifu
 ```
 
 
