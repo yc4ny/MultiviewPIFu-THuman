@@ -62,8 +62,8 @@ def save_obj(mesh_path, verts):
     file.close()
 
 def sampleSphericalDirections(n):
-    xv = np.random.rand(n,n)
-    yv = np.random.rand(n,n)
+    xv = np.random.rand(n, n)
+    yv = np.random.rand(n, n)
     theta = np.arccos(1-2 * xv)
     phi = 2.0 * math.pi * yv
 
@@ -78,7 +78,7 @@ def sampleSphericalDirections(n):
 def getSHCoeffs(order, phi, theta):
     shs = []
     for n in range(0, order+1):
-        for m in range(-n,n+1):
+        for m in range(-n, n+1):
             s = SphericalHarmonic(m, n, theta, phi)
             shs.append(s)
     
@@ -105,7 +105,7 @@ def computePRT(mesh_path, n, order):
         dots = (vectors * normals).sum(1)
         front = (dots > 0.0)
 
-        delta = 1e-3*min(mesh.bounding_box.extents)
+        delta = 1e-3 * min(mesh.bounding_box.extents)
         hits = mesh.ray.intersects_any(origins + delta * normals, vectors)
         nohits = np.logical_and(front, np.logical_not(hits))
 
@@ -118,25 +118,32 @@ def computePRT(mesh_path, n, order):
 
     PRT = w * PRT_all
 
-    # NOTE: trimesh sometimes break the original vertex order, but topology will not change.
-    # when loading PRT in other program, use the triangle list from trimesh.
     return PRT, mesh.faces
 
 def testPRT(dir_path, n=40):
     if dir_path[-1] == '/':
         dir_path = dir_path[:-1]
-    sub_name = dir_path.split('/')[-1][:-4]
-    obj_path = os.path.join(dir_path, sub_name + '_100k.obj')
+
+    sub_name = dir_path.split('/')[-1]
+
+    obj_path = os.path.join(dir_path, f'{sub_name}.obj')
     os.makedirs(os.path.join(dir_path, 'bounce'), exist_ok=True)
 
     PRT, F = computePRT(obj_path, n, 2)
     np.savetxt(os.path.join(dir_path, 'bounce', 'bounce0.txt'), PRT, fmt='%.8f')
     np.save(os.path.join(dir_path, 'bounce', 'face.npy'), F)
 
+def process_all_subfolders(base_dir, n):
+    subfolders = [f.path for f in os.scandir(base_dir) if f.is_dir()]
+
+    for folder in tqdm(subfolders, desc="Processing subfolders"):
+        print(f"Processing {folder}...")
+        testPRT(folder, n)
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input', type=str, default='/home/shunsuke/Downloads/rp_dennis_posed_004_OBJ')
-    parser.add_argument('-n', '--n_sample', type=int, default=40, help='squared root of number of sampling. the higher, the more accurate, but slower')
+    parser.add_argument('-i', '--input', type=str, default='./THuman2.1/', help="Base directory containing all subfolders")
+    parser.add_argument('-n', '--n_sample', type=int, default=40, help='Squared root of number of sampling. The higher, the more accurate, but slower')
     args = parser.parse_args()
 
-    testPRT(args.input)
+    process_all_subfolders(args.input, args.n_sample)
