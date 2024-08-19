@@ -12,7 +12,7 @@ year = {2019}
 ```
 
 ## Installation
-Same environment as the original [PIFu](https://shunsukesaito.github.io/PIFu) repo. 
+Same environment as the original [PIFu](https://github.com/shunsukesaito/PIFu) repo. 
 
 
 ## Preprocess with THuman2.0/2.1 Dataset
