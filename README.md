@@ -16,3 +16,5 @@ Same environment as the original PIFu repo.
 
 
 ## Preprocess with THuman2.0/2.1 Dataset
+
+Request access to [THuman Dataset](https://github.com/ytrock/THuman2.0-Dataset)
