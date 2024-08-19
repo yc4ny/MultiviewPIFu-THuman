@@ -4,7 +4,8 @@
 ## Installation
 Same environment as the original [PIFu](https://github.com/shunsukesaito/PIFu) repo.
 
-### To install only the necessary packages for preprocessing. 
+
+#### To install only the necessary packages for preprocessing. 
 
 Conda environment
 ```
