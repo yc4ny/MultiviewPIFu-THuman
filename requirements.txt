@@ -5,3 +5,4 @@ scikit-learn
 numpy==1.23.0
 PyOpenGl
 PyOpenGl_accelerate
+scikit-image==0.18.3
